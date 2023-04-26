@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+{% block body%}
+<link rel="stylesheet" href="..static/styles/header.css">
+<div class="container">
+
+<form action="/login" method="GET">
+            <input type="text" name="username" placeholder="username" class="input_field" autocomplete="off"> <br>
+            <input type="password" name="password" placeholder="password" class="input_field" autocomplete="off"> <br>
+            <input type="submit" value="Submit" class="input_submit"> <br>
+             {{message}}
+        </form>
+</div>
+{% endblock%}
