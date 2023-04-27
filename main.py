@@ -32,7 +32,7 @@ def create_customer():
         else:
             conn.execute(text(
                 "INSERT INTO users (name, email, username, password, user_type) VALUES (:name, :email,:username, :password, 'customer')"),
-                         request.form)
+                request.form)
             conn.commit()
             return render_template('CustomerSignUp.html', message='Account Creation Successful')
 
@@ -55,7 +55,7 @@ def create_vendor():
         else:
             conn.execute(text(
                 "INSERT INTO users (name, email, username, password, user_type) VALUES (:name, :email,:username, :password, 'vendor')"),
-                         request.form)
+                request.form)
             conn.commit()
             return render_template('VendorSignUp.html', message='Account Creation Successful')
 
@@ -69,15 +69,51 @@ def customer_login():
         password = request.form['password']
         query = conn.execute(text("SELECT * FROM users WHERE username = :username").bindparams(username=username))
         result = query.fetchone()
-        query2 = conn.execute(text("SELECT * FROM users WHERE username = :username AND password = :password").bindparams(username=username,password=password))
+        query2 = conn.execute(
+            text("SELECT * FROM users WHERE username = :username AND password = :password").bindparams(
+                username=username, password=password))
         result2 = query2.fetchone()
+        query3 = conn.execute(
+            text("SELECT * FROM users WHERE username = :username AND password = :password AND user_type = 'vendor'").bindparams(
+                username=username, password=password))
+        result3 = query3.fetchone()
+
         if result:
-            if result2:
+            if result3:
+                return render_template("CustomerLogin.html", message='Incorrect Account Type')
+            elif result2:
                 session['username'] = username
-                user_info = conn.execute(text("SELECT * FROM users WHERE username = :username").bindparams(username=username)).fetchone()
                 return render_template('MyCustomer.html')
             else:
                 render_template("CustomerLogin.html", message='Incorrect Password')
+
+
+@app.route('/VendorLogin', methods=['GET', 'POST'])
+def vendor_login():
+    if request.method == 'GET':
+        return render_template("VendorLogin.html")
+    else:
+        username = request.form['username']
+        password = request.form['password']
+        query = conn.execute(text("SELECT * FROM users WHERE username = :username").bindparams(username=username))
+        result = query.fetchone()
+        query2 = conn.execute(
+            text("SELECT * FROM users WHERE username = :username AND password = :password").bindparams(
+                username=username, password=password))
+        result2 = query2.fetchone()
+        query3 = conn.execute(
+            text("SELECT * FROM users WHERE username = :username AND password = :password AND user_type = 'customer'").bindparams(
+                username=username, password=password))
+        result3 = query3.fetchone()
+
+        if result:
+            if result3:
+                return render_template("VendorLogin.html", message='Incorrect Account Type')
+            elif result2:
+                session['username'] = username
+                return render_template('MyVendor.html')
+            else:
+                render_template("VendorLogin.html", message='Incorrect Password')
 
 
 if __name__ == '__main__':
