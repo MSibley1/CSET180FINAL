@@ -17,6 +17,7 @@
             <li><a href="/EditItem">Edit Item</a></li>
               <li><a href="/AddVariant">Add Variant</a></li>
             <li><a href="/AddItem">Add Item</a> </li>
+              <li> <a href="/DeleteItem">Delete Item</a></li>
             <li><a href="/MyVendor">VendorPage</a> </li>
             <li><a href="/VendorOrders">Orders</a></li>
               <li><a href="/Products">Products</a> </li>
@@ -32,7 +33,7 @@
             <h2>{{ success }}</h2>
         {% endif %}
         <h3>Delete Item</h3>
-            <form action="/Delete" method="POST">
+            <form action="/DeleteItem" method="POST">
                 <input type="text" name="item_id" placeholder="item id" class="input_field" autocomplete="off"> <br>
                 <input type="submit" value="Submit" class="input_submit">
                 {{message}}

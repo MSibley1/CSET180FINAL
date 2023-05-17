@@ -25,23 +25,21 @@
     </header>
     <h1>UBuy Shopping</h1>
     <div class="store">
-                {% for item in items %}
+                {% for item in products %}
     <div class="shop-item">
-        <h4 class="shop-item-title">{{item.title}}</h4>
+        <p class="shop-item-title">{{item.item_title}}</p>
+        <p class="shop-item-title">Category: {{item.item_category}}</p>
+        <p class="shop-item-title">Description: {{item.item_description}}</p>
         <img class="shop-item-image" src="../static/images/{{item.image}}">
         <p class="shop-item-title">Size: {{item.size}}</p>
         <p class="shop-item-title">Color: {{item.color}}</p>
         <p class="shop-item-title">Price: {{item.price}}</p>
-        <p class="shop-item-title">Order Status: {{item.order_status}}</p>
-        <form action="approve2" method="POST">
-            <input type="hidden" name="order_id" value="{{item.order_id}}">
-            <input type="submit" value="Confirm Order" class="input_submit">
-        </form>
+        <p class="shop-item-title">Remaining: {{item.inventory_count}}</p>
     </div>
                 {% endfor %}
     </div>
   <div class="footer">
-    <p>©UBuy Shopping</p>
+    <p>©UBuy Shopping    </p>
   </div>
 
 

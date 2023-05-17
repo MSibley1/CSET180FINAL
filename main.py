@@ -387,16 +387,14 @@ def admin_login():
             return render_template('AdminLogin.html', message='Invalid username')
 
 
-@app.route('/DeleteItem', methods=['GET'])
+@app.route('/DeleteItem', methods=['GET','POST'])
 def display():
-    return render_template("DeleteItem.html")
-
-
-@app.route('/Delete', methods=['POST'])
-def delete():
-    conn.execute(text("DELETE FROM items WHERE item_id = :item_id"), request.form)
-    conn.commit()
-    return render_template("DeleteItem.html")
+    if request.method == 'GET':
+        return render_template("DeleteItem.html")
+    else:
+        conn.execute(text("DELETE FROM Items where item_id = :item_id"), request.form)
+        conn.commit()
+        return render_template("DeleteItem.html")
 
 
 @app.route('/AddItemAdmin', methods=['GET', 'POST'])
@@ -493,6 +491,12 @@ def review():
 def reviews():
     reviews = conn.execute(text("SELECT * FROM reviews"))
     return render_template("Reviews.html", reviews=reviews)
+
+
+@app.route('/AdminProducts', methods=['GET'])
+def getprods():
+    products = conn.execute(text("SELECT * FROM variants"))
+    return render_template('AdminProducts.html', products=products)
 
 
 if __name__ == '__main__':
