@@ -5,12 +5,14 @@
     <link rel= "stylesheet" href= "../static/styles/header.css">
     <title>My site</title>
   </head>
+
   <body>
     <header>
       <div class="topBar">
         <div class="">
           <ul class="barItem">
-              <li><a href="/">HOME</a></li>
+
+            <li><a href="/">HOME</a></li>
             <li><a href="/EditItem">Edit Item</a></li>
               <li><a href="/AddVariant">Add Variant</a></li>
             <li><a href="/AddItem">Add Item</a> </li>
@@ -23,8 +25,20 @@
       </div>
     </header>
     <h1>UBuy Shopping</h1>
-    {% block body %}
-    {% endblock %}
+    <div class="store">
+                {% for item in products %}
+    <div class="shop-item">
+        <p class="shop-item-title">{{item.title}}</p>
+        <p class="shop-item-title">Category: {{item.item_category}}</p>
+        <p class="shop-item-title">Description: {{item.item_description}}</p>
+        <img class="shop-item-image" src="../static/images/{{item.image}}">
+        <p class="shop-item-title">Size: {{item.size}}</p>
+        <p class="shop-item-title">Color: {{item.color}}</p>
+        <p class="shop-item-title">Price: {{item.price}}</p>
+        <p class="shop-item-title">Remaining: {{item.inventory_count}}</p>
+    </div>
+                {% endfor %}
+    </div>
   <div class="footer">
     <p>©UBuy Shopping    </p>
   </div>
@@ -32,15 +46,3 @@
 
   </body>
 </html>
-
-
-
-
-<form class="form">
-            <div class="form_container">
-                <p>Vendor ID: {{vendor[0]}} </p>
-                <p>Name: {{vendor[1]}}</p>
-                <p>Email:{{vendor[2]}}</p>
-                <p>username:{{vendor[3]}} </p>
-            </div>
-        </form>

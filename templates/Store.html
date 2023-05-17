@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel= "stylesheet" href= "../static/styles/header.css">
+    <title>My site</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="topBar">
+        <div class="">
+          <ul class="barItem">
+
+            <li><a href="/">Home</a></li>
+              <li><a href="/MyUser">My Account</a></li>
+              <li><a href="/Shop">Shop</a></li>
+            <li><a href="/Cart">Cart</a></li>
+            <li><a href="/Reviews">Reviews</a></li>
+              <li><a href="/Orders">Orders</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <h1>UBuy Shopping</h1>
+    <div class="store">
+                {% for item in items %}
+    <div class="shop-item">
+        <p class="shop-item-title">{{item.item_title}}</p>
+        <p class="shop-item-title">Category: {{item.item_category}}</p>
+        <p class="shop-item-title">Description: {{item.item_description}}</p>
+        <img class="shop-item-image" src="../static/images/{{item.image}}">
+        <p class="shop-item-title">Size: {{item.size}}</p>
+        <p class="shop-item-title">Color: {{item.color}}</p>
+        <p class="shop-item-title">Price: {{item.price}}</p>
+        <p class="shop-item-title">Remaining: {{item.inventory_count}}</p>
+        <form action="add_to_cart" method="post" class="center">
+            <input type="hidden" name="item_title" value="{{item.item_title}}">
+            <input type="hidden" name="image" value="{{item.image}}">
+            <input type="hidden" name="vendor_id" value="{{item.vendor_id}}">
+            <input type="hidden" name="color" value="{{item.color}}">
+            <input type="hidden" name="price" value="{{item.price}}">
+            <input type="hidden" name="size" value="{{item.size}}">
+            <input type="hidden" name="variant_id" value="{{item.variant_id}}">
+            <input type="hidden" name="item_id" value="{{item.item_id}}">
+            <input type="number" name="quantity" min="1" max="{{item.inventory_count}}" value="">
+            <input type="submit" value="Add to Cart">
+        </form>
+    </div>
+                {% endfor %}
+    </div>
+  <div class="footer">
+    <p>©UBuy Shopping    </p>
+  </div>
+
+
+  </body>
+</html>

@@ -12,37 +12,31 @@
         <div class="">
           <ul class="barItem">
 
-            <li><a href="/">Home</a></li>
-              <li><a href="/MyUser">My Account</a></li>
-              <li><a href="/Shop">Shop</a></li>
-            <li><a href="/Cart">Cart</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/MyAdmin">My Admin</a></li>
+            <li><a href="/AddItemAdmin">Edit Item</a> </li>
+            <li><a href="/OrdersAdmin">Orders</a></li>
             <li><a href="/Reviews">Reviews</a></li>
-              <li><a href="/Orders">Orders</a></li>
+              <li><a href="/ReturnsAdmin">Returns</a></li>
           </ul>
         </div>
       </div>
     </header>
     <h1>UBuy Shopping</h1>
-<div class="container">
-    <h3>Customer Login</h3>
+    <div class="container">
+    <h3>Admin Login</h3>
 
-<form action="/CustomerLogin" method="POST">
+<form action="/AdminLogin" method="POST">
             <input type="text" name="username" placeholder="username" class="input_field" autocomplete="off"> <br>
             <input type="password" name="password" placeholder="password" class="input_field" autocomplete="off"> <br>
             <input type="submit" value="Submit" class="input_submit"> <br>
             <p>{{message}}</p>
         </form>
 </div>
-
-
   <div class="footer">
-    <p>©UBuy Shopping</p>
+    <p>©UBuy Shopping    </p>
   </div>
 
 
-
-
-
-
-
-
+  </body>
+</html>

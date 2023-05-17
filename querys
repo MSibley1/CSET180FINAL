@@ -1,0 +1,72 @@
+CREATE Table Users(
+User_ID int primary key auto_increment,
+Name varchar(255),
+email varchar(255),
+username varchar(255),
+password varchar(255),
+user_type varchar(255));
+
+CREATE Table orders(
+order_id int auto_increment primary key,
+user_id varchar(255) references user_id(user),
+vendor_id varchar(255) references vendor_id(variants),
+title varchar(255) references item_title(items),
+price DECIMAL(6,2) NOT NULL references price(variants),
+size varchar(255) references color(variants),
+color varchar(255) references color(variants),
+image text,
+order_status varchar(255));
+
+CREATE Table reviews(
+review_id int auto_increment primary key,
+order_id int references order_id(orders),
+user_id varchar(255) references user_id(user),
+vendor_id varchar(255) references vendor_id(variants),
+title varchar(255) references item_title(items),
+price DECIMAL(6,2) NOT NULL references price(variants),
+size varchar(255) references color(variants),
+color varchar(255) references color(variants),
+image text,
+review_message text,
+rating int);
+
+CREATE Table returns(
+return_id int auto_increment primary key,
+order_id int references order_id(orders),
+user_id varchar(255) references user_id(user),
+vendor_id varchar(255) references vendor_id(variants),
+title varchar(255) references item_title(items),
+price DECIMAL(6,2) NOT NULL references price(variants),
+size varchar(255) references color(variants),
+color varchar(255) references color(variants),
+image text);
+
+CREATE Table items(
+item_id int auto_increment primary key,
+vendor_id int references user_id(user),
+item_title varchar(255),
+item_category varchar(255),
+item_description varchar(255));
+
+CREATE Table variants(
+variant_id int auto_increment primary key,
+vendor_id int references user(user_id),
+item_id int references items(item_id),
+image text,
+size varchar(255),
+color varchar(255),
+price DECIMAL(6,2),
+inventory_count int);
+
+CREATE Table carts(
+order_id int primary key auto_increment,
+user_id int references users(user_id),
+vendor_id int references items(vendor_id),
+item_id int references items(item_id),
+variant_id int references variants(variant_id),
+image text references variants(image),
+size varchar(255) references variants(size),
+color varchar(255) references variants(color),
+price decimal(6,2) references variants(price),
+quantity int references variants(inventory_count),
+item_title varchar(255) references items(item_title));

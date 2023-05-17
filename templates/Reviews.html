@@ -22,8 +22,23 @@
       </div>
     </header>
     <h1>UBuy Shopping</h1>
-    {% block body %}
-    {% endblock %}
+    {% for item in reviews %}
+    <div class="cart-row">
+      <ul class="nobullet">
+        <li>{{item.item_title}}</li>
+      </ul>
+      <img class="shop-item-image" src="../static/images/{{item.image}}">
+      <ul class="nobullet">
+        <li>Price: {{item.price}}</li>
+        <li>Color: {{item.color}}</li>
+        <li>Size: {{item.size}}</li>
+      </ul>
+      <p>Review: {{item.review_message}}</p>
+      <p>Rating: {{item.rating}}/10</p>
+
+
+  </div>
+    {% endfor %}
   <div class="footer">
     <p>©UBuy Shopping    </p>
   </div>

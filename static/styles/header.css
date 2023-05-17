@@ -1,5 +1,7 @@
 .barItem{
   display: inline-block;
+   text-color:#89cff0;
+   color: #89cff0;
 }
 
 .logo {
@@ -14,7 +16,7 @@ header li {
 }
 
 .topBar{
-  background-color: #03ac13;
+  background-color: #000080;
   display:flex;
   justify-content: space-between;
   align-items:center;
@@ -42,8 +44,15 @@ header li {
 h1{
   text-align: center;
   font-size: 3.7rem
-  margin: auto;
-  color: #03ac13;
+
+  color: #000080;
+}
+
+.top {
+ text-align: center;
+  font-size: 3.7rem;
+  color: #000080;
+ font-style:italic;
 }
 
 header a{
@@ -72,7 +81,8 @@ body {
 }
 
 .nav__ul a {
-  color: #999;
+  color: #89cff0;
+  text-color: #89cff0;
 }
 
 .nav__ul--extra {
@@ -96,17 +106,18 @@ body {
 
     .input_submit {
       width: 100%;
-      background-color: #03ac13;
+      background-color: #000080;
       color: white;
       padding: 14px 20px;
       margin: 8px 0;
-      border: none;
-      border-radius: 4px;
+      border: solid 2px;
+      border-radius: 12px;
       cursor: pointer;
     }
 
     .input_submit:hover {
-      background-color: yellow;
+      background-color: #89cff0;
+      border-color: #000080
     }
 
 .body{
@@ -151,8 +162,93 @@ font-size: 2.5rem;
     border-radius: 2%;
 }
 h2{
-    color:red;
-    font-style: italic;
-    margin-top: 10%;
     font-size: 200%;
+}
+
+
+.footer {
+display: flexbox;
+position: fixed;
+bottom:0px;
+margin-top: 50px;
+height: auto;
+width: 100vw ;
+background-color: #89cff0;
+}
+
+.footer p {
+margin-left: 1130px;
+font-size:12px;
+}
+
+
+ .shop-item {
+    width: 275px;
+    margin: 30px;
+    border: solid;
+    display: inline-block;
+    }
+
+.shop-item-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+}
+
+.shop-item-image {
+    height: 250px;
+    width: 250px;
+    float: left;
+    margin: auto 0;
+}
+
+.shop-item-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: solid red;
+
+}
+
+.shop-item-price {
+    color: black;
+    border: solid;
+}
+
+.left {
+margin-right: 40px;
+float: left;
+}
+.right {
+margin-left: 40px;
+float: right;
+}
+
+.store{
+display: flex
+   overflow-x:hidden;
+
+}
+
+.cart-row {
+display: flexbox;
+border: solid;
+margin: auto;
+}
+
+.nobullet{
+list-style-type: none;
+}
+
+
+body{
+padding-bottom: 200px
+}
+
+.landing {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 30px;
 }

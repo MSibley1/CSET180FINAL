@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel= "stylesheet" href= "../static/styles/header.css">
+    <title>My site</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="topBar">
+        <div class="">
+          <ul class="barItem">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/EditItem">Edit Item</a></li>
+              <li><a href="/AddVariant">Add Variant</a></li>
+            <li><a href="/AddItem">Add Item</a> </li>
+            <li><a href="/MyVendor">VendorPage</a> </li>
+            <li><a href="/VendorOrders">Orders</a></li>
+              <li><a href="/Products">Products</a> </li>
+              <li><a href="/Reviews">Reviews</a> </li>
+              <li><a href="/VendorReturns">Returns</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <h1>UBuy Shopping</h1>
+    <div class="store">
+                {% for item in returns %}
+    <div class="shop-item">
+        <h4 class="shop-item-title">{{item.title}}</h4>
+        <img class="shop-item-image" src="../static/images/{{item.image}}">
+        <p class="shop-item-title">User: {{item.user_id}}</p>
+        <p class="shop-item-title">Size: {{item.size}}</p>
+        <p class="shop-item-title">Color: {{item.color}}</p>
+        <p class="shop-item-title">Price: {{item.price}}</p>
+        <form action="deny" method="POST">
+            <input type="hidden" name="return_id" value="{{item.return_id}}">
+            <input type="submit" value="accept" class="input_submit">
+        </form>
+        <form action="deny" method="POST">
+            <input type="hidden" name="return_id" value="{{item.return_id}}">
+            <input type="submit" value="deny" class="input_submit">
+        </form>
+    </div>
+                {% endfor %}
+    </div>
+  <div class="footer">
+    <p>©UBuy Shopping</p>
+  </div>
+
+
+  </body>
+</html>

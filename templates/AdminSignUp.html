@@ -12,26 +12,20 @@
         <div class="">
           <ul class="barItem">
 
-             <li><a href="/">HOME</a></li>
-            <li><a href="/EditItem">Edit Item</a></li>
-              <li><a href="/AddVariant">Add Variant</a></li>
-            <li><a href="/AddItem">Add Item</a> </li>
-            <li><a href="/MyVendor">VendorPage</a> </li>
-            <li><a href="/VendorOrders">Orders</a></li>
-              <li><a href="/Reviews">Reviews</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/MyAdmin">My Admin</a></li>
+            <li><a href="/AddItemAdmin">Edit Item</a> </li>
+            <li><a href="/OrdersAdmin">Orders</a></li>
+            <li><a href="/Reviews">Reviews</a></li>
+              <li><a href="/ReturnsAdmin">Returns</a></li>
           </ul>
         </div>
       </div>
     </header>
     <h1>UBuy Shopping</h1>
-<div class="container">
-
-    <div class="body">
-        {% if success %}
-            <h2>{{ success }}</h2>
-        {% endif %}
-
-        <form action="/VendorSignUp" method="POST">
+    <div class="container">
+    <h3>Admin Login</h3>
+<form action="/AdminSignUp" method="POST">
             <input type="text" name="name" placeholder="name" class="input_field" autocomplete="off"> <br>
             <input type="text" name="email" placeholder="email" class="input_field" autocomplete="off"> <br>
             <input type="text" name="username" placeholder="username" class="input_field" autocomplete="off"> <br>
@@ -39,28 +33,8 @@
             <input type="submit" value="Submit" class="input_submit">
             {{message}}
         </form>
-    </div>
 </div>
-
-
   <div class="footer">
-    <p>©UBuy Shopping</p>
+    <p>©UBuy Shopping    </p>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

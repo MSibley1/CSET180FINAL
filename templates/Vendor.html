@@ -13,17 +13,19 @@
           <ul class="barItem">
 
             <li><a href="/">HOME</a></li>
-            <li><a href="/Customer">Customer</a></li>
-            <li><a href="/Vendor">Vendor</a> </li>
-            <li><a href="/Admin">Admin</a> </li>
-
+            <li><a href="/VendorSignUp">Sign Up</a></li>
+            <li><a href="/VendorLogin">Login</a> </li>
           </ul>
         </div>
       </div>
     </header>
     <h1>UBuy Shopping</h1>
-    {% block body %}
-    {% endblock %}
+    <div class="container">
+    <div class="buttons">
+        <input type="submit" value="Login" onclick="window.location.href='VendorLogin'" class="input_submit">
+        <input type="submit" value="Sign Up" onclick="window.location.href='VendorSignUp'" class="input_submit">
+    </div>
+</div>
   <div class="footer">
     <p>©UBuy Shopping    </p>
   </div>

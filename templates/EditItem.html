@@ -11,56 +11,38 @@
       <div class="topBar">
         <div class="">
           <ul class="barItem">
-
-             <li><a href="/">HOME</a></li>
+                <li><a href="/">HOME</a></li>
             <li><a href="/EditItem">Edit Item</a></li>
               <li><a href="/AddVariant">Add Variant</a></li>
             <li><a href="/AddItem">Add Item</a> </li>
             <li><a href="/MyVendor">VendorPage</a> </li>
             <li><a href="/VendorOrders">Orders</a></li>
-              <li><a href="/Reviews">Reviews</a></li>
+              <li><a href="/Products">Products</a> </li>
+              <li><a href="/ReviewsVendor">Reviews</a> </li>
           </ul>
         </div>
       </div>
     </header>
     <h1>UBuy Shopping</h1>
-<div class="container">
 
-    <div class="body">
+<div class="body">
         {% if success %}
             <h2>{{ success }}</h2>
         {% endif %}
-
-        <form action="/VendorSignUp" method="POST">
-            <input type="text" name="name" placeholder="name" class="input_field" autocomplete="off"> <br>
-            <input type="text" name="email" placeholder="email" class="input_field" autocomplete="off"> <br>
-            <input type="text" name="username" placeholder="username" class="input_field" autocomplete="off"> <br>
-            <input type="text" name="password" placeholder="Password" class="input_field" autocomplete="off"> <br>
+<form action="/EditItem" method="POST">
+            <input type="text" name="item_id" placeholder="item id" class="input_field" autocomplete="off"> <br>
+            <input type="text" name="item_title" placeholder="Item Title" class="input_field" autocomplete="off"><br>
+            <input type="text" name="item_description" placeholder="description" class="input_field" autocomplete="off"> <br>
+            <input type="text" name="item_category" placeholder="category" class="input_field" autocomplete="off"> <br>
             <input type="submit" value="Submit" class="input_submit">
             {{message}}
         </form>
+
     </div>
-</div>
-
-
   <div class="footer">
-    <p>©UBuy Shopping</p>
+    <p>©UBuy Shopping    </p>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </body>
+</html>

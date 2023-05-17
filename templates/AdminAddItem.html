@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel= "stylesheet" href= "../static/styles/header.css">
+    <title>My site</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="topBar">
+        <div class="">
+          <ul class="barItem">
+
+            <li><a href="/">HOME</a></li>
+            <li><a href="/MyAdmin">My Admin</a></li>
+            <li><a href="/AddItemAdmin">Edit Item</a> </li>
+            <li><a href="/OrdersAdmin">Orders</a></li>
+            <li><a href="/Reviews">Reviews</a></li>
+              <li><a href="/ReturnsAdmin">Returns</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <h1>Add Item</h1>
+    <div class="container">
+    <div class="body">
+        {% if success %}
+            <h2>{{ success }}</h2>
+        {% endif %}
+
+            <h3>Add Item</h3>
+            <form action="/AddItemAdmin" method="POST">
+                <input type="text" name="vendor_id" placeholder="Vendor ID" class="input_field" autocomplete="off"> <br>
+                <input type="text" name="item_title" placeholder="item title" class="input_field" autocomplete="off"> <br>
+                <input type="text" name="item_description" placeholder="description" class="input_field" autocomplete="off"> <br>
+                <input type="text" name="item_category" placeholder="category" class="input_field" autocomplete="off"> <br>
+                <input type="submit" value="Submit" class="input_submit">
+                {{message}}
+            </form>
+
+    </div>
+</div>
+  <div class="footer">
+    <p>©UBuy Shopping   </p>
+  </div>
+
+
+  </body>
+</html>
